@@ -47,7 +47,7 @@ class Phonebook {
         if (this.index < this.contacts.length) {
             return {
                 done: false,
-                value: this.contacts[this.index++],
+                value: this.contacts.sort((a, b) => a.name > b.name ? 1 : -1)[this.index++],
             };
         }
         return {
@@ -58,8 +58,12 @@ class Phonebook {
         // IterableIterator<Contact> {
         return this;
     }
+    nameContains(name) {
+        const contacts = this.get(name);
+        return contacts;
+    }
 }
-function newPhoneBook() {
+function createPhonebook() {
     return new Phonebook();
 }
-exports.default = newPhoneBook;
+exports.default = createPhonebook;

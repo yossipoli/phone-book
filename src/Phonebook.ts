@@ -34,8 +34,8 @@ class Phonebook implements IPhonebook {
         }
     }
 
-    get(argument: number | string): Contact |  undefined ;
-    get(argument: number | string):  Contact[] | undefined ;
+    get(argument: number): Contact |  undefined ;
+    get(argument: string):  Contact[] | undefined ;
     get(argument: number | string): Contact | Contact[] | undefined {
         if (typeof(argument) === "number") {
             return this.contacts.find(contact=> contact.id === argument)
@@ -58,7 +58,7 @@ class Phonebook implements IPhonebook {
         if (this.index < this.contacts.length) {
             return {
                 done: false,
-                value: this.contacts[this.index++],
+                value: this.contacts.sort((a,b)=>a.name>b.name? 1: -1)[this.index++],
             };
         }
         return {
@@ -69,6 +69,11 @@ class Phonebook implements IPhonebook {
     [Symbol.iterator](): any {
         // IterableIterator<Contact> {
         return this;
+    }
+
+    nameContains(name:string):Contact[]|any{
+       const contacts = this.get(name)
+       return contacts
     }
 }
 

@@ -9,5 +9,7 @@ export interface IPhonebook {
     get(name: string): Contact[] | undefined ; // get contacts by name
     remove(id: number): Contact | undefined; // remove contact by id and returns it
 
+    nameContains(name:string): Contact[]
+
     [Symbol.iterator]() : IterableIterator<Contact>;
 }
