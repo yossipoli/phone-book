@@ -49,6 +49,6 @@ class Phonebook implements IPhonebook{
     
 }
 
-export default function newPhoneBook(){
-    return Phonebook
+export default function newPhoneBook():IPhonebook{
+    return  new Phonebook()
 }
