@@ -23,4 +23,14 @@ yellowPages.add(new Contact_1.default("Shimrit", "HY7 SA", ["03-741"]));
 console.log(yellowPages.size());
 yellowPages.remove(13);
 console.log(yellowPages.size());
-// console.log(phonebook.get(2))
+console.log(yellowPages.get(2));
+for (const contact of yellowPages) {
+    console.log(contact);
+}
+console.log(yellowPages.get("Amit"));
+console.log(yellowPages.get("Amits"));
+console.log(yellowPages.get(1));
+console.log(yellowPages.get(111));
+// for(const contact of yellowPages.nameContains('cohen')){
+//     //contacts with 'cohen' will be delivered
+//  }

@@ -15,6 +15,11 @@ yellowPages.add(new Contact("Amit", "Mishol Hakanarit 44/12, Tivon", ["04-159"])
 yellowPages.add(new Contact("Liat", "Babait Sheli 19, Home", ["050-822"]))
 yellowPages.add(new Contact("Ziv", "Lehavot 3, Lehavim", ["050-992"]))
 
+console.log(yellowPages.get("Amit"))
+console.log(yellowPages.get("Amits"))
+console.log(yellowPages.get(1))
+console.log(yellowPages.get(111))
+
 console.log(yellowPages.size())
 
 yellowPages.add(new Contact("Shimrit", "bet Haroshet 3, Yokneam", ["04-863", "050-473"]))
@@ -23,12 +28,12 @@ yellowPages.add(new Contact("Shimrit", "HY7 SA", ["03-741"]))
 console.log(yellowPages.size())
 yellowPages.remove(13)
 console.log(yellowPages.size())
-// console.log(phonebook.get(2))
+console.log(yellowPages.get(2))
 
 for (const contact of yellowPages){
     console.log(contact)
 }
 
-for(const contact of yellowPages.nameContains('cohen')){
-    //contacts with 'cohen' will be delivered
- }
+// for(const contact of yellowPages.nameContains('cohen')){
+//     //contacts with 'cohen' will be delivered
+//  }
