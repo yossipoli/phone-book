@@ -4,6 +4,7 @@ class Phonebook {
     constructor(contacts = []) {
         this.contacts = contacts;
         this.idNumber = 0;
+        this.index = 0;
     }
     get newId() {
         this.idNumber++;
@@ -27,11 +28,13 @@ class Phonebook {
             console.log("No contact");
         }
     }
-    get(id) {
-        return this.contacts.find(contact => contact.id === id);
-    }
-    getByName(name) {
-        return this.contacts.filter(contact => contact.name === name);
+    get(argument) {
+        if (typeof (argument) === "number") {
+            return this.contacts.find(contact => contact.id === argument);
+        }
+        else {
+            return this.contacts.filter(contact => contact.name.includes(argument));
+        }
     }
     remove(id) {
         const contact = this.get(id);
@@ -39,6 +42,21 @@ class Phonebook {
             this.contacts.splice(this.contacts.indexOf(contact), 1);
         }
         return contact;
+    }
+    next() {
+        if (this.index < this.contacts.length) {
+            return {
+                done: false,
+                value: this.contacts[this.index++],
+            };
+        }
+        return {
+            done: true,
+        };
+    }
+    [Symbol.iterator]() {
+        // IterableIterator<Contact> {
+        return this;
     }
 }
 function newPhoneBook() {
