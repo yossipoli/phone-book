@@ -1,7 +1,7 @@
 import Contact from "./Contact";
-import newPhoneBook from "./Phonebook";
+import createPhonebook from "./Phonebook";
 
-const yellowPages =  newPhoneBook()
+const yellowPages =  createPhonebook()
 
 yellowPages.add(new Contact("Yossi", "MH10", ["050222"]))
 yellowPages.add(new Contact("Lior", "My House 12, Naharya", ["050-123"]))
@@ -34,6 +34,6 @@ for (const contact of yellowPages){
     console.log(contact)
 }
 
-// for(const contact of yellowPages.nameContains('cohen')){
-//     //contacts with 'cohen' will be delivered
-//  }
+for(const contact of yellowPages.nameContains('cohen')){
+    console.log(contact)
+ }
