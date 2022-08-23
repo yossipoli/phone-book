@@ -3,7 +3,7 @@ import { IPhonebook } from "./IPhonebook";
 
 class Phonebook implements IPhonebook{
     private idNumber
-    constructor(private contacts:Contact[] = []){
+    constructor(public contacts:Contact[] = []){
         this.idNumber=0
     }
     get newId():number{
@@ -22,11 +22,16 @@ class Phonebook implements IPhonebook{
         return id
     }
 
-    addPhone(id: numbernumber: number): void {
-        
+    addPhone(id: number, number: string): void {
+        const contact = this.get(id)
+        if(contact){
+            contact.phones.push(number)
+        } else{
+            console.log("No contact")
+        }
     }
 
-    getByNumber(id: number): Contact | undefined {
+    get(id: number): Contact | undefined {
         return this.contacts.find(contact=> contact.id === id)
     }
 
@@ -34,10 +39,16 @@ class Phonebook implements IPhonebook{
         return this.contacts.filter(contact=> contact.name === name)
     }
 
-
+    remove(id:number):Contact|undefined{
+        const contact = this.get(id)
+        if (contact){
+            this.contacts.splice(this.contacts.indexOf(contact),1)
+        }
+        return contact
+    }
     
 }
 
-export function newPhoneBook(){
+export default function newPhoneBook(){
     return Phonebook
 }
