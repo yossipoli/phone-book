@@ -3,6 +3,10 @@ import createPhonebook from "./Phonebook";
 
 const yellowPages =  createPhonebook()
 
+// yellowPages.nameContains = function(){
+
+// }
+
 yellowPages.add(new Contact("Yossi", "MH10", ["050222"]))
 yellowPages.add(new Contact("Lior", "My House 12, Naharya", ["050-123"]))
 yellowPages.add(new Contact("Nurit", "Maalor 5, Givataim", ["050-456"]))
@@ -34,6 +38,6 @@ for (const contact of yellowPages){
     console.log(contact)
 }
 
-for(const contact of yellowPages.nameContains('cohen')){
+for(const contact of yellowPages.nameContains('a')){
     console.log(contact)
  }
